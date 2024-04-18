@@ -1,0 +1,1289 @@
+/*--------------------------------CSS RESET----------------------------------------*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+ul,
+ol,
+dl,
+dd {
+  margin: 0 0 1.5rem;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+
+html{
+    line-height: 1.5;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color:  #36bf7f;
+}
+a:hover,
+a,focus {
+    color: #d96666;
+}
+
+
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+svg{
+    fill: currentColor;
+}
+
+svg:not(:root){
+    overflow: hidden;
+}
+
+
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*----------Variables---------------*/
+:root {
+    /* colors */
+    --color_primary: #111A2C;
+    --color_light: #59758d;
+    --color_secondary: #048B70;
+    --color_secondary_dark: #06230B;
+    --color-light: #07DAAF;
+    --color-shadow: #0002;
+    --white-color:#fff;
+
+    /* Font Style*/
+    --main-font: "Wix Madefor Text", sans-serif;;
+    --secondary-font: "Rubik Scribble", system-ui;
+    --thirdly-font: "Workbench", sans-serif;
+    --fourth-font: "Archivo Black", sans-serif;
+
+    /* positioning */
+    --banner--large: 50vh;
+    --horizontal: flex-start;
+    --vertical: center;
+    --align--text: left;
+}
+
+
+/*---------------------------Global Styles------------------------------*/
+
+html {
+    font-family: var(--main-font);
+    focus-within {
+    scroll-behavior: smooth;}
+    background-color: var(--color_secondary);
+}
+
+/*-----------------------------------Index Html Style-------------------------------------*/
+
+/* --------------------------navbar Styles ----------------------------*/
+
+.navbar {
+  background-color: var(--color_primary);
+  color: var(--white-color);
+  border-top: 0.25rem solid var(--color_secondary);
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.navbar .container {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.navbar__headline {
+  font-size: 1.424rem;
+  font-weight: bold; 
+  line-height: 1.3;
+  margin: 0;
+} 
+
+.navbar__icon {
+  width: 4rem;
+}
+
+.cls-1{fill:#5c7fc0;}
+.cls-1,.cls-2,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{stroke-width:0px;}.cls-2{fill:#645069;}
+.cls-3{fill:#b5c5e2;}
+.cls-4{fill:#433546;}
+.cls-5,.cls-10{fill:#c6b9ca;}
+.cls-10{stroke:#433546;stroke-width:16px;}
+.cls-10,.cls-11,.cls-12,.cls-13,.cls-14{stroke-miterlimit:10;}
+.cls-11{fill:#3d8e61;stroke:#397f58;}
+.cls-11,.cls-13{stroke-width:7px;}
+.cls-6{fill:#385894;}
+.cls-7{fill:#231f20;}
+.cls-12{fill:#16233b;stroke:#231f20;}
+.cls-8{fill:#64516a;}
+.cls-13{fill:#008d71;font-family:MyriadPro-Regular, 'Myriad Pro';font-size:72px;stroke:#025040;}
+.cls-14{fill:#3e61a3;stroke:#3e61a3;}
+.cls-9{fill:#fff;}
+
+.navbar__nav {
+  position: fixed;
+  top: 0;
+  right: -66.6666%;
+  width: 66.6666vw;
+  height: 100vh;
+  box-shadow: -2px 3px 5px rgba(0, 0, 0, 0.15);
+  background-color: var(--color_primary);
+  border-top: 0.25rem solid var(--color-light);
+  transition: right .2s;
+}
+
+.navbar__nav.open {
+  right: 0;
+}
+
+.navbar__list {
+  padding: 6rem 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__link {
+  color: var(--white-color);
+  text-decoration: none;
+  display: block;
+  padding: 0.75rem 1.5rem;
+  text-align: right;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--white-color);
+  background: var(--color_secondary);
+  
+}
+
+
+/* ---------- Nav Toggle ---------- */
+
+.nav_toggle {
+  width: 2.5rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.nav-toggle__tog {
+  width: 100%;
+  height: 4px;
+  background-color: var(--white-color);
+  position: relative;
+
+  /* Add transition here: */
+  transition: 
+  top .2s,
+  translate .2s,
+  rotate .2s,
+  opacity .2s,
+  bottom .2s;
+}
+.nav-toggle__tog--top {
+  top: 0;
+}
+
+.nav-toggle__tog--bottom {
+  bottom: 0;
+}
+
+.open .nav-toggle__tog--top {
+  top: 50%;
+  translate: 0 -50%;
+  rotate: 45deg;
+}
+
+.open .nav-toggle__tog--middle {
+  opacity: 0;
+}
+
+.open .nav-toggle__tog--bottom {
+  bottom: 50%;
+  translate: 0 50%;
+  rotate: -45deg;
+}
+
+.click-to-close {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0008;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  transition: opacity .2s;
+}
+
+.click-to-close.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.screen-reader-text {
+  position: absolute;
+  clip-path: polygon(0 0, .1% 0, .1% .1%, 0 0.1%);
+}
+
+/*--------------------Animation for navbar logo---------------*/
+svg:hover  #right  {
+  animation: shakes 0.1s infinite alternate; 
+}
+svg:hover  #left  {
+  animation: shakes 0.1s infinite alternate; 
+}
+
+@keyframes shakes {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1rem);
+  }
+  50% {
+    transform: translateX(1rem);
+  }
+  75% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+svg:hover .cls-9 {
+  transform-origin: center;
+  animation: spinAnimation 1s linear infinite;
+}
+svg:hover .cls-7 {
+  transform-origin: center;
+  animation: shakeAnimation 0.5s linear infinite, spinAnimation 1s linear infinite alternate;
+}
+
+@keyframes shakeAnimation {
+  0%, 100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-0.125rem, -0.125rem);
+  }
+  50% {
+    transform: translate(0.125rem, 0.125rem);
+  }
+  75% {
+    transform: translate(-0.125rem, 0.125rem);
+  }
+}
+
+@keyframes spinAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* --------------------Banner Section Styles -------------------------------*/
+
+.banner_container {
+    width: min(65em, 100%);
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+.banner {
+    background-image: 
+    linear-gradient(to bottom, #00000099, #00000099),
+    url('../images/hacking-Hero-Banner.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-color: var(--color_secondary);
+    background-blend-mode: hard-light;
+    height: 70vh;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.banner_title,
+.banner_text {
+    opacity: 0;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.banner_title {
+    padding-bottom: 2rem;
+    margin: 0;
+    animation: rotate_fade_in 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.5s forwards;
+}
+
+.banner_text {
+    animation: rotate_fade_in 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1s forwards;
+}
+/*-------------Animation for Banner-----------*/
+@keyframes rotate_fade_in {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) rotate(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) rotate(0);
+    }
+}
+
+
+
+
+.banner_container {
+    min-height: var(--banner--large);
+    display: flex;
+    justify-content: var(--horizontal);
+    align-items: var(--vertical);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.banner_content {
+    width: min(35em, 100%);
+    text-align: var(--align--text);
+}
+
+.banner_title {
+    font-size: 2rem;
+    font-family: var(--secondary-font);
+    line-height: 1.3;
+    color: var(--color-light);
+    padding-bottom: 3rem;
+}
+
+.banner_text {
+    font-size: 1.5rem;
+    color: var(--white-color);
+}
+
+.banner--large {
+    --banner--large: 75vh;
+}
+
+.banner--right {
+    --horizontal: flex-end;
+    --align--text: right;
+}
+
+.banner--center {
+    --horizontal: center;
+    --align--text: center;
+}
+
+
+.banner--top {
+    --vertical: flex-start;
+} 
+
+.banner--bottom {
+    --vertical: flex-end;
+}
+
+
+/* --------------------Skills Section Styles -------------------------------*/
+
+.skills {
+    background-image: 
+    linear-gradient(to bottom, 
+    #00000099 0%, 
+    #00000099 50%,
+    transparent 80%,
+    var(--color_secondary) 100%
+    ),
+    url('../images/image\ copy.png');
+    background-position: center;
+    background-size: cover;
+    background-color: var(--color_secondary);
+    background-blend-mode:color-dodge;
+    border-top: 0.5rem solid var(--color_secondary_dark);
+    border-bottom: 0.5rem solid var(--color_secondary_dark);
+}
+
+.skills_container {
+    min-height: var(--banner--large);
+    display: flex;
+    justify-content: var(--horizontal);
+    align-items: var(--vertical);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: min(65em, 100%);
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 1.5rem;
+}
+
+.my_skills_title{
+  color: var(--white-color);
+  font-family: var(--thirdly-font);
+}
+
+.cards{
+  display: grid;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--color_primary);
+  border-radius: 3rem;
+  box-shadow: 0 0.25rem 0.5rem var(--color-shadow), 0 .25rem .75rem var(--color-shadow);
+  /* cursor: pointer; */
+  list-style: none;
+  padding: 2rem;
+  transition: translate .2s,box-shadow .2s;
+}
+
+
+.card:hover,
+.card:focus-visible {
+  box-shadow: 0 0.5rem 0.5rem var(--color-shadow), 0 0.5rem 0.5rem var(--color-shadow);
+  translate: 0 -0.5rem;
+}
+
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.5rem);
+  }
+  50% {
+    transform: translateX(0.5rem);
+  }
+  75% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.card_media img {
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+
+.card__icon {
+  color: var(--color_secondary);
+}
+
+.card_title {
+  color: var(--white-color);
+}
+
+.card_text {
+  color: var(--white-color);
+  margin-bottom: 0;
+}
+
+/*-------------------------------------------Footer Styles-----------------------------------*/
+
+.footer {
+    background-color: var(--color_primary);
+    color: var(--white-color);
+    border-bottom: 0.25rem solid var(--color_secondary);
+}
+
+.footer__container {
+    position: relative;
+    width: min(65em, 100%);
+    gap: 3rem;
+    margin: 0 auto;
+    background-color: var(--color_primary);
+    padding: 1rem;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer_logo {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ayoub_logo {
+    position: relative;
+    right: 2rem; 
+    width: 30rem;
+    height: auto;
+}
+
+.footer_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.reachme_info {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    position: relative;
+}
+
+.reachme_info :hover,
+.reachme_info :focus {
+  animation: shake 0.3s ease;
+}
+
+.reachme_info a img {
+    width: 3rem;
+    height: auto; 
+}
+
+.footer_text {
+  color: var(--color-light);
+}
+
+.madd_link {
+  color: inherit; 
+  text-decoration: none;
+  outline: none;
+}
+
+.madd_link :hover,
+.madd_link :focus {
+  color: var(--white-color);
+  animation: shake 0.3s ease;
+}
+
+.footer_para {
+  margin-bottom: 0;
+}
+
+/*-----------------Animation for footer logo--------------*/
+svg:hover  #numbers_right  {
+  animation: shaker 0.1s infinite alternate; 
+}
+svg:hover  #numbers_left  {
+  animation: shaker 0.1s infinite alternate; 
+}
+
+@keyframes shaker {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.1rem);
+  }
+  50% {
+    transform: translateX(0.1rem);
+  }
+  75% {
+    transform: translateX(-0.1rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.lock:hover {
+  transform: scale(1.1); /* Scale the lock on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.ayoub_logo:hover {
+  fill: var(--color-light); 
+  transition: fill 0.3s ease;
+}
+
+svg:hover .cls-4 {
+  animation: shake 0.5s ease 3;
+}
+
+svg:hover .cls-5 {
+  animation: shake 0.5s ease 3;
+}
+
+svg:hover .cls-6 {
+  animation: shake 0.5s ease 3; 
+}
+
+
+
+/*-----------------------------------Portfolio Html Style---------------------------------*/
+
+/* --------------------Banner Section Styles ----------------------------*/
+
+.banner_portfolio {
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Adjust the opacity here */
+    url('../images/wallpapertip_hd-wallpaper-for-mobile_66409.svg');
+  background-position: center;
+  background-size: cover;
+  height: auto;
+}
+
+.banner_container_portfolio {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.banner_content {
+  width: min(65em, 100%);
+}
+
+.banner_title_portfolio {
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 10rem;
+  margin-bottom: 0;
+  font-family: var(--secondary-font);
+  font-style: oblique;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.project_container {
+    min-height: var(--banner--large);
+    display: flex;
+    justify-content: var(--horizontal);
+    align-items: var(--vertical);
+    width: min(65em, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 1.5rem;
+    padding: 0;
+    padding-bottom: 13rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+/* ----------------Card Section Styles -----------------------*/
+
+.cards_portfolio {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.card_portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--color_primary);
+  border-radius: 3rem;
+  box-shadow: 0 0.25rem 0.5rem var(--color-shadow), 0 .25rem .75rem var(--color-shadow);
+  list-style: none;
+  padding: 1.5rem;
+  height: 100%;
+  cursor: pointer;
+  transition: translate .2s,box-shadow .2s;
+}
+
+.card_portfolio:hover,
+.card_portfolio:focus-visible {
+  box-shadow: 0 0.5rem 0.5rem var(--color-shadow), 0 0.5rem 0.5rem var(--color-shadow);
+  box-shadow: 0 0.5rem 0.75rem #0002;
+  translate: 0 -0.5rem;
+}
+
+.card_media {
+  border-radius: 1rem;
+}
+
+.image_container {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.portfolio_img {
+  height: auto;
+  display: block;
+  width: 100%;
+}
+
+.card_content_portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: start;
+  padding-top: 3rem;
+}
+
+.anchor {
+    color: inherit; 
+    text-decoration: none;
+    outline: none;
+}
+
+
+
+
+/*-----------------------------------Contact Html Style-------------------------------------*/
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner_contact {
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Adjust the opacity here */
+    url('../images/wp8775823-hacker-codes-wallpapers.jpg');
+  background-position: center;
+  background-size: cover;
+  height: auto;
+}
+
+.contact_content {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.banner_title_contact {
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 7rem;
+  margin-bottom: 0;
+  font-family: var(--secondary-font);
+  font-style: oblique;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.contact_container {
+    width: min(65em, 100%);
+    gap: 3rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.wrapper {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  height: 50vh;
+  width:100%;
+  margin-bottom: 5rem;
+}
+
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 1px solid white;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1.25em;
+  color: white;
+  pointer-events: none;
+  transition: .5s;
+  font-family: var(--fourth-font);
+}
+
+.input-box input:focus  ~ label,
+.input-box input:valid  ~ label {
+  top:  -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  padding: 0 35px 0 5px;
+  
+}
+
+ 
+button {
+  width: 100%;
+  height: 40px;
+  background-color:#000;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: 500;
+}
+
+button:hover,
+button:focus {
+  transform: translateY(-0.5rem);
+}
+
+@media (max-width:539px) {
+  .login-box {
+    width: 100%;
+    height:100vh;
+    border:none;
+    border-radius:0;
+  }
+  .input-box {
+    width: 290px;
+  }
+}
+
+.me_img {
+  margin-top: 10rem;
+  width: min(65em, 50%);
+}
+
+.img_style {
+  border-radius: 3rem;
+  
+}
+
+.drop_me {
+  margin-top: 2rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-family: var(--fourth-font);
+}
+
+
+
+
+
+
+
+
+
+/* -------------------Type Hierarchy - Mobile Size ---------------------- */
+
+h1 {
+    font-size: 2.027rem;
+}
+
+h2 {
+    font-size: 1.802rem;
+}
+
+h3 {
+    font-size: 1.602rem;
+}
+
+p {
+    font-size: 1.3rem;
+  }
+
+
+/*---------------------------Tablet screen-------------------------------------------------*/
+
+@media only screen and (min-width: 45em) {
+
+  /* -------------- NavBar Styles - Tablet Size -------------- */
+    
+  .navbar .container {
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .navbar__nav {
+    position: static;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    z-index: auto;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .navbar__list {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .navbar__link {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .nav_toggle {
+    display: none;
+  }
+
+  /* -------------- Banner Styles - Tablet Size -------------- */
+  .banner_container {
+    padding-top: 13rem;
+    padding-bottom: 7rem;
+  }
+
+  .banner_title {
+    font-size: 2.7rem;
+  }
+    
+  .banner_text,
+  .btn--large {
+    font-size: 1.5rem;
+  }
+
+
+  /* ---------------Skills Section Styles - Tablet Size ------------------------*/
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4rem;
+  }
+
+  /*-----------------------Footer Styles - Tablet Size---------------------------*/
+
+  .wrap {
+    flex-direction: row;
+    gap: 7rem;
+  }
+
+  .ayoub_logo { 
+    width: 35rem;
+  }
+  
+  .reachme_info a img {
+    width: 3.5rem;
+  }
+
+  .footer_text {
+    display: flex;
+    text-align: center;
+  }
+
+  /* ---------------Portfolio Html Styles - Tablet Size ------------------------*/
+  /* ---------Card Section Styles - Tablet Size ----------------*/
+
+  
+  .cards_portfolio {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .banner_title_portfolio {
+    font-size: 15rem;
+  }
+
+  /*-------------Contact Html Style  - Tablet Size------------------------*/
+
+  .contact {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper {
+    height: auto;
+  }
+
+  .banner_title_contact {
+    font-size: 9.5rem;
+  }
+
+  .me_img {
+    margin: 0;
+  }
+
+
+  /* ------------- Type Hierarchy - Tablet Size -------------- */
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  h2 {
+    font-size: 2.074rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.45rem;
+  }
+
+}
+
+
+
+/*---------------------------laptop screen-------------------------------------------------*/
+@media only screen and (min-width: 60em) {
+
+  /* -------------- Banner Styles - Laptop Size -------------- */
+  .banner_title {
+      font-size: 3rem;
+  }
+    
+  .banner_text,
+  .btn--large {
+      font-size: 1.7rem;
+  }
+
+
+
+  /* ---------------Skills Section Styles - Laptop Size ------------------------*/
+  .skills_container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .card {
+    display: grid;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  /*-----------------------Footer Styles - Laptop Size ---------------------------*/
+
+  .wrap {
+    gap: 20rem;
+  }
+
+  .ayoub_logo { 
+    width: 40rem;
+  }
+
+  /* ---------------Portfolio Html Styles - Laptop Size ------------------------*/
+  /* ----------Card Section Styles - Laptop Size ----------------*/
+
+  .project_container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cards_portfolio {
+    grid-template-columns: repeat(3, 1fr)
+  }
+
+  .banner_title_portfolio {
+    font-size: 20rem;
+  }
+
+  /*-------------Contact Html Style  - Laptop Size------------------------*/
+
+  .banner_title_contact {
+    font-size: 11.5rem;
+  }
+
+  /* --------- Type Hierarchy - Laptop Size ---------- */
+  h1 {
+      font-size: 3rem;
+  }
+
+  h2 {
+      font-size: 2.441rem;
+  }
+
+  h3 {
+      font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.4rem;
+  }
+
+}
+
+
+/* skip links*/
+
+.skip-links {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.skip-links__link {
+  position: absolute;
+  top: -10rem;
+  left: 0.5rem;
+  display: inline-block;
+  padding: 0.55em 1.5em 0.5em;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border-radius: 0.25em;
+  text-decoration: none;
+  z-index: 1000000;
+}
+
+.skip-links__link:focus {
+  top: 1rem;
+  color: var(--color-light)   ;
+}
+
+/* ---------- To Top ---------- */
+
+.to-top {
+  position: fixed;
+  bottom: -.5rem;
+  right: 1.5rem;
+  background-color: var(--color-light);
+  color: #000;
+  padding: .5rem .5rem 1rem;
+  border-radius: .5rem .5rem 0 0;
+  text-decoration: none;
+  box-shadow: 0 0 .5rem #0002;
+  translate: 0 100%;
+  z-index: 3;
+
+  /* Add transition here: */
+  transition: translate .2s,bottom .2s;
+}
+
+.to-top.visible {
+  translate: 0;
+}
+
+.to-top:hover,
+.to-top:focus-visible {
+  bottom: 0;
+  color: #000;
+  translate: 0;
+}
+
+
